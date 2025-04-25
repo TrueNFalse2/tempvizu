@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking Technology Impact Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #9ca3af, #d1d5db);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px20px;
+            font-size: 1rem;
+            color: #fff;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .fallback-message {
+            text-align: center;
+            font-size: 1rem;
+            color: #ff6b6b;
+            margin-top: 20px;
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tracking Technology Impact: Movement, Body Stats</h1>
+            <p>
+                This dashboard analyzes the impact of tracking technologies on wildlife, 
+                providing insights into movement patterns and physiological data for enhanced conservation strategies.
+            </p>
+            <a href="index.html" class="back-btn">Back to Home</a>
+        </header>
+        <section class="section" id="tableau">
+            <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+            <tableau-viz 
+                id="tableauViz"
+                src="https://public.tableau.com/views/dashboard3_17455764637600/TrackingTechnologyImpactMovementBodyStatsTrackingTechnologyImpactMovementBodyStats"
+                toolbar="bottom"
+                hide-tabs
+                width="100%"
+                height="800">
+            </tableau-viz>
+            <p class="fallback-message" id="fallback3">
+                Unable to load the dashboard. Please check your internet connection or verify the Tableau URL.
+            </p>
+        </section>
+    </div>
+    <script>
+        // Show fallback message if Tableau fails to load
+        window.addEventListener('load', () => {
+            const viz = document.getElementById('tableauViz');
+            setTimeout(() => {
+                if (!viz.shadowRoot) {
+                    document.getElementById('fallback3').style.display = 'block';
+                }
+            }, 5000); // Wait 5 seconds to check if Tableau loaded
+        });
+    </script>
+</body>
+</html>
