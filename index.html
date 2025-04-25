@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rare Wildlife Monitoring & Insights System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #134e4a, #047857);
+            color: #fff;
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(19, 78, 74, 0.3), rgba(4, 120, 87, 0.3));
+            z-index: 0;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #facc15, #f97316) 1;
+            border-radius: 15px;
+            padding: 50px;
+            max-width: 1000px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            animation: slideIn 1s ease-out;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: scale(1.02);
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            animation: scaleIn 1.2s ease-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin: 20px 0;
+            opacity: 0;
+            animation: fadeInText 1.5s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            color: #fff;
+            background: linear-gradient(45deg, #facc15, #f97316);
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(80px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        @media (max-width: 768px) {
+            .content-card { padding: 30px; }
+            h1 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            .btn { font-size: 1rem; padding: 12px 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="overlay"></div>
+    <div class="content-card">
+        <header>
+            <h1>Lior Rimon's System - Rare Wildlife Monitoring & Insights System</h1>
+            <p>
+                Our cutting-edge visualization platform empowers conservationists and researchers with actionable insights into rare wildlife populations. 
+                The system integrates advanced data analytics to monitor species sightings, reproductive trends, and tracking technology impacts, 
+                enabling informed decision-making for wildlife preservation.
+            </p>
+        </header>
+        <div class="button-container">
+            <a href="dash1.html" class="btn">System 1 - Species Insights: Sightings, Habitats & Hot Zones</a>
+            <a href="dash2.html" class="btn">System 2 - Reproductive Trends and Health Insights in Rare Species</a>
+            <a href="dash3.html" class="btn">System 3 - Tracking Technology Impact: Movement, Body Stats</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#fefcbf" },
+                shape: { type: "circle" },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#fefcbf", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 3, direction: "none", random: true, straight: false, out_mode: "out" }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { grab: { distance: 200, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+    </script>
+</body>
+</html>
